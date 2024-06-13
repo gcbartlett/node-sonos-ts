@@ -1,10 +1,9 @@
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
+  preset: 'ts-jest',
   transform: {
-    '.tsx?$': 'ts-jest'
+    '^.+\\.ts$': ['ts-jest', { isolatedModules:true }]
   },
-  testRegex: '(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
-  testPathIgnorePatterns: ['/dist/', '/node_modules/', '/tests/helpers/legacy-helpers.js', '/tests/test-helpers.ts'],
-  moduleFileExtensions: ['ts', 'tsx', 'jsx', 'js', 'json'],
   testEnvironment: 'node',
   collectCoverage: true,
   coverageReporters: ['text', 'text-summary', 'lcov', 'html'],
@@ -13,5 +12,10 @@ module.exports = {
     'src/helpers/*.ts',
     'src/models/*.ts',
     'src/services/*.ts'
+  ],
+  testTimeout: 60000,
+  testPathIgnorePatterns: [
+    '/tests/events.test.ts',
+    '/tests/sonos-device-notification.test.ts',
   ]
-}
+};

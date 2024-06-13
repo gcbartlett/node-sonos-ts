@@ -43,8 +43,8 @@ jobs:
         run: npm run test:jest
 
       - name: Send data to Coveralls
-        if: always() && matrix.node == 16
-        uses: coverallsapp/github-action@master
+        if: always() && matrix.node == 18
+        uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}          
 

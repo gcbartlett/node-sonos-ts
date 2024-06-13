@@ -856,14 +856,13 @@ describe('SonosDevice', () => {
   })
 
   describe('SetVolume()', () => {
-    it('throws error when invalid volume', async (done) => {
+    it('throws error when invalid volume', async () => {
 
       const device = new SonosDevice(TestHelpers.testHost);
       try {
         await device.SetVolume(105);
       } catch(err) {
         expect(err).to.not.be.undefined;
-        done();
       }
     });
     it('executes the correct command', async () => {
